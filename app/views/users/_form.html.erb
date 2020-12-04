@@ -1,0 +1,83 @@
+<%= form_with(model: user, local: true) do |form| %>
+  <% if user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+        <% user.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <label for="type_user">Tipo persona</label>
+    <% optionsTypeUser = {'Natural' => 'N', 'Jurídica' => 'J' }%>
+    <fieldset>
+      <% list = optionsTypeUser.sort %>
+      <% list.each do |option| %>
+        <%= form.radio_button :type_user, option[1], required: true %>
+        <label for="<%= option[1]%>"><%= option[0]%></label>
+      <% end %>
+    </fieldset>
+  </div>
+
+  <div class="field">
+    <label for="type_document">Tipo de documento de identidad</label>
+    <% optionsTypeDocument = {'CI' => 'CI', 'Pasaporte' => 'PASAPORTE', 'Rif' => 'RIF' }%>
+    <% list = optionsTypeDocument.sort %>
+    <%= form.select :type_document, list, required: true%>
+  </div>
+
+  <div class="field">
+    <label for="document_number">Número de documento de identidad</label>
+    <%= form.text_field :document_number, required: true %>
+  </div>
+
+  <div class="field">
+    <label for="document_issuance_date">Fecha de emisión del documento</label>
+    <%= form.date_select :document_issuance_date,
+    start_year:1950,
+    end_year:2018,
+    use_month_numbers: true,
+    order: [:day, :month, :year],
+    use_two_digit_numbers: true,
+    required: true %>
+  </div>
+
+  <div class="field">
+    <label for="document_expiration_date">Fecha de expiración del documento</label>
+    <%= form.date_select :document_expiration_date,
+    order: [:day, :month, :year],
+    use_two_digit_numbers: true,
+    start_year:1950,
+    end_year:2018,
+    use_month_numbers: true,
+    required: true%>
+  </div>
+
+  <div class="field">
+    <label for="firts_name">Nombre</label>
+    <%= form.text_field :firts_name, required: true %>
+  </div>
+
+  <div class="field">
+    <label for="email">Correo electrónico</label>
+    <%= form.text_field :email, required: true %>
+  </div>
+
+  <div class="field">
+    <label for="phone">Teléfono principal</label>
+    <%= form.number_field :phone, required: true %>
+  </div>
+
+  <div class="field">
+    <label for="phone_secundary">Teléfono secundario</label>
+    <%= form.number_field :phone_secundary %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

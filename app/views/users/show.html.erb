@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @user.firts_name %>
+</p>
+
+<p>
+  <strong>Tipo persona:</strong>
+  <%= @user.type_user %>
+</p>
+
+<p>
+  <strong>Tipo de documento de identidad:</strong>
+  <%= @user.type_document %>
+</p>
+
+<p>
+  <strong>Número de documento de identidad:</strong>
+  <%= @user.document_number %>
+</p>
+
+<p>
+  <strong>Fecha de emisión del documento:</strong>
+  <%= @user.document_issuance_date %>
+</p>
+
+<p>
+  <strong>Fecha de expiración del documento:</strong>
+  <%= @user.document_expiration_date %>
+</p>
+
+<p>
+  <strong>Correo electrónico:</strong>
+  <%= @user.email %>
+</p>
+
+<p>
+  <strong>Teléfono principal:</strong>
+  <%= @user.phone %>
+</p>
+
+<p>
+  <strong>Teléfono secundario:</strong>
+  <%= @user.phone_secundary %>
+</p>
+
+<%= link_to 'Editar', edit_user_path(@user) %> |
+<%= link_to 'Regresar', users_path %>

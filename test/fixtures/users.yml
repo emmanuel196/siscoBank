@@ -1,0 +1,23 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  firts_name: MyString
+  type_user: MyString
+  type_document: MyString
+  document_number: MyString
+  document_issuance_date: 2020-12-03
+  document_expiration_date: 2020-12-03
+  email: MyString
+  phone: 
+  phone_secundary: 
+
+two:
+  firts_name: MyString
+  type_user: MyString
+  type_document: MyString
+  document_number: MyString
+  document_issuance_date: 2020-12-03
+  document_expiration_date: 2020-12-03
+  email: MyString
+  phone: 
+  phone_secundary: 
